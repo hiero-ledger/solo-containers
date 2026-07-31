@@ -9,12 +9,13 @@ if [ "${exit_code}" -ne 0 ]; then
   echo "network-node exited abnormally"
 fi
 
-# On a clean exit, set the "once" flag so s6-supervise does not restart
-# the service. Using s6-svc -O is safe to call from inside finish because
-# it only flips a flag in the supervision tree and avoids racing with
-# s6-rc's own state machine (which s6-rc -d change would do).
-if [ "${exit_code}" -eq 0 ]; then
-  /command/s6-svc -O /run/service/network-node 2>/dev/null || true
-fi
+# Always set the "once" flag so s6-supervise does not restart the service.
+# A nonzero exit cannot safely distinguish a transient failure from a fatal
+# configuration or runtime error. Keeping the service down preserves the
+# failure logs and prevents a rapid restart loop. The lifecycle helper clears
+# this flag before an explicit start. Using s6-svc -O is safe to call from
+# inside finish because it only flips a flag in the supervision tree and avoids
+# racing with s6-rc's own state machine (which s6-rc -d change would do).
+/command/s6-svc -O /run/service/network-node 2>/dev/null || true
 
 exit 0

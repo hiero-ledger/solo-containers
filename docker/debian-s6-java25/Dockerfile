@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-FROM debian:trixie-20260623-slim@sha256:63f19e1cf7f3e375045a9f9e5828042ae448364c289153c3f6156eba3934cf52
+FROM debian:trixie-20260803-slim@sha256:3a39a0592364683e6bab97937b72cad5a8fa6dcbbee90edb3bb48c7f8e94f258
 # Define Standard Environment Variables
 ENV LC_ALL=C.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive

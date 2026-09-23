@@ -2,13 +2,13 @@
 ##### Global Protection Rule ######
 ###################################
 # NOTE: This rule is overriden by the more specific rules below. This is the catch-all rule for all files not covered by the more specific rules below.
-*                                               @hashgraph/release-engineering @hashgraph/release-engineering-managers
+*                                               @hiero-ledger/solo-containers-committers @hiero-ledger/solo-containers-maintainers
 
 ############################
 #####  Project Files  ######
 ############################
 
-/charts/**                                      @hashgraph/release-engineering @hashgraph/release-engineering-managers
+/charts/**                                      @hiero-ledger/solo-containers-committers @hiero-ledger/solo-containers-maintainers
 
 #########################
 #####  Core Files  ######
@@ -17,16 +17,16 @@
 # NOTE: Must be placed last to ensure enforcement over all other rules
 
 # Protection Rules for Github Configuration Files and Actions Workflows
-/.github/                                       @hashgraph/release-engineering-managers @hashgraph/platform-ci
-/.github/workflows/                             @hashgraph/release-engineering-managers @hashgraph/platform-ci
+/.github/                                       @hiero-ledger/solo-containers-maintainers @hiero-ledger/github-maintainers
+/.github/workflows/                             @hiero-ledger/solo-containers-maintainers @hiero-ledger/github-maintainers
 
 # Self-protection for root CODEOWNERS files (this file should not exist and should definitely require approval)
-/CODEOWNERS                                     @hashgraph/release-engineering-managers
+/CODEOWNERS                                     @hiero-ledger/solo-containers-maintainers
 
 # Protect the repository root files
-/README.md                                      @hashgraph/release-engineering @hashgraph/release-engineering-managers
-**/LICENSE                                      @hashgraph/release-engineering-managers
+/README.md                                      @hiero-ledger/solo-containers-committers @hiero-ledger/solo-containers-maintainers
+**/LICENSE                                      @hiero-ledger/solo-containers-maintainers
 
 # Git Ignore definitions
-**/.gitignore                                   @hashgraph/release-engineering @hashgraph/release-engineering-managers @hashgraph/platform-ci
-**/.gitignore.*                                 @hashgraph/release-engineering @hashgraph/release-engineering-managers @hashgraph/platform-ci
+**/.gitignore                                   @hiero-ledger/solo-containers-committers @hiero-ledger/solo-containers-maintainers @hiero-ledger/github-maintainers
+**/.gitignore.*                                 @hiero-ledger/solo-containers-committers @hiero-ledger/solo-containers-maintainers @hiero-ledger/github-maintainers

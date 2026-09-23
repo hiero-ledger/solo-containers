@@ -42,7 +42,7 @@ permissions:
 jobs:
   prepare-release:
     name: Release / Prepare
-    runs-on: solo-linux-medium
+    runs-on: hl-solo-cont-lin-md
     outputs:
       version: ${{ steps.tag.outputs.version }}
       should-release: ${{ steps.tag.outputs.should-release }}
@@ -102,7 +102,7 @@ jobs:
 
   publish-docker-image:
     name: Publish / Docker Image
-    runs-on: solo-linux-medium
+    runs-on: hl-solo-cont-lin-md
     needs:
       - prepare-release
     if: ${{ needs.prepare-release.outputs.should-release == 'true' }}
@@ -154,7 +154,7 @@ jobs:
 
   create-github-release:
     name: Github / Release
-    runs-on: solo-linux-medium
+    runs-on: hl-solo-cont-lin-md
     needs:
       - prepare-release
       - publish-docker-image

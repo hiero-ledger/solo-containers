@@ -24,7 +24,7 @@ concurrency:
 jobs:
   title-check:
     name: Title Check
-    runs-on: solo-linux-medium
+    runs-on: hl-solo-cont-lin-md
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4

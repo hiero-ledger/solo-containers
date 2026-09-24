@@ -124,7 +124,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Login to GitHub Container Registry
-        uses: step-security/docker-login-action@164e21d7e52229904128e2f946001cb88278c33d # v4.2.0
+        uses: step-security/docker-login-action@8c7b695d8738c5699a679ff5254baf0f19f20a94 # v4.6.0
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}

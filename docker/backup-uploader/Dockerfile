@@ -1,6 +1,6 @@
 FROM rclone/rclone:1.74.3 as rclone
 
-FROM ubuntu:noble-20260410@sha256:c4a8d5503dfb2a3eb8ab5f807da5bc69a85730fb49b5cfca2330194ebcc41c7b
+FROM ubuntu:noble-20260911@sha256:c5ddb18c368db61a2f5b0971380f0ff1a1bb50e1da176cc48c9e5c2dbf3afb5b
 
 ARG UNAME=hedera
 ARG UID=2000

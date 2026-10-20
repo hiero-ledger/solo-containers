@@ -92,10 +92,10 @@ else
     exit_with_failure "ERROR BACKING UP TO $backup_destination"
 fi
 
-current_round_number="/$backup_hostname.txt"
+current_round_number="${TMPDIR:-/tmp}/$backup_hostname.txt"
 echo $second_to_last_state > $current_round_number
 $rclone_cmd copy $current_round_number backups:$bucket/current_round/
-pretty_print "LATEST ROUND ${second_to_last_state} WRITTEN TO $bucket/current_round/$current_round_number"
+pretty_print "LATEST ROUND ${second_to_last_state} WRITTEN TO $bucket/current_round/$backup_hostname.txt"
 
 # only backup stats file on the midnight backup
 if [ "$(date +%H)" = "00" ] && [ "$(date +%H%M%S)" -lt "001000" ]; then

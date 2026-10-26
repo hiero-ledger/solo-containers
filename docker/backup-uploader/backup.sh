@@ -78,7 +78,12 @@ version_source=/opt/hgcapp/services-hedera/HapiApp2.0/VERSION; readonly version_
 version_dest=$backup_latest/; readonly version_dest
 
 pretty_print "ATTEMPTING COPY $version_source TO $version_dest"
-if $rclone_cmd copy $version_source backups:$version_dest; then
+if [ ! -e "$version_source" ] && [ -n "${BACKUP_UPLOADER_CN_VERSION}" ]; then
+    printf "VERSION=%s" "${BACKUP_UPLOADER_CN_VERSION}" | $rclone_cmd rcat "backups:${version_dest}VERSION"
+else
+    $rclone_cmd copy "$version_source" "backups:$version_dest"
+fi
+if [ $? -eq 0 ]; then
     pretty_print "COPY SUCCESSFUL $version_dest"
 else
     exit_with_failure "ERROR DURING COPY TO $version_dest"
